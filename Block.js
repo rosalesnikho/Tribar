@@ -1,7 +1,10 @@
-//
-const { GENESIS_DATA} = require('./config');
+// Requires
+const { GENESIS_DATA } = require('./config');
 const cryptoHash = require('./crypto-hash');
 
+/*
+* Model for the Block class requiring minimum params for creating a block
+*/
 class Block {
 	constructor({timestamp, lastHash, hash, data}) {
 		this.timestamp = timestamp;
@@ -10,10 +13,17 @@ class Block {
 		this.data = data;
 	}
 
+	/*
+	*
+	*/
 	static genesis() {
 		return new this(GENESIS_DATA);
 	}
 
+
+	/*
+	*
+	*/
 	static mineBlock({ lastBlock, data }) {
 		const timestamp = Date.now();
 		const lastHash = lastBlock.hash;

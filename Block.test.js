@@ -1,5 +1,16 @@
+
+/*
+*
+*
+*/
 const Block  = require('./Block');
 const cryptoHash = require('./crypto-hash');
+
+
+/*
+*
+*
+*/
 
 describe('Block', () => {
 	const timestamp =  'a-data';
