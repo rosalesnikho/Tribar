@@ -68,13 +68,7 @@ describe('Blockhain', () => {
 
     //
     describe('replaceChain()', () =>{
-        // //
-        // beforeEach(() => {
-        //     blockChain.addBlock({data: 'bears'});
-        //     blockChain.addBlock({data: 'beets'});
-        //     blockChain.addBlock({data: 'battlestar galactica'});
-        // });
-        // //
+
         describe('When the new chain is not longer', () => {
             it('does not replace the chain', () => {
                 newChain.chain[0] = { new: 'chain'};
