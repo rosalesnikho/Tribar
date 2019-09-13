@@ -1,1 +1,1 @@
-#Tribar | Crypto currency & Blockchain
+# Tribar | Crypto currency & Blockchain
