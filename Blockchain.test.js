@@ -71,7 +71,6 @@ describe('Blockhain', () => {
                     const badBlock = new Block({ timestamp, lastHash, hash, nonce, difficulty, data});
 
                     blockChain.chain.push(badBlock);
-
                     expect(Blockchain.isValidChain(blockChain.chain)).toBe(false);
                })
             });
