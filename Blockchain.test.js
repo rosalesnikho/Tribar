@@ -80,15 +80,16 @@ describe('Blockhain', () => {
 
     describe('when the new chain is longer', () => {
 
+        //
         beforeEach(() => {
             newChain.addBlock({data: 'bears'});
             newChain.addBlock({data: 'beets'});
-            newChain.addBlock({data: 'battlestar galactica'});
+            newChain.addBlock({data: 'Battlestar Galactica'});
         });
-
+        //
         describe('and the chain is invalid', () => {
             it('does not replace the chain', () => {
-                newChain.chain[2].hash = 'fake-chain';
+                newChain.chain[2].hash = 'fake-chain-hash';
                 blockChain.replaceChain(newChain.chain);
             })
         });

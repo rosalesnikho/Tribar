@@ -2,6 +2,7 @@ const Block = require('./Block');
 const cryptoHash = require('./crypto-hash');
 
 class Blockchain {
+
     constructor () {
         this.chain = [Block.genesis()];
     }
@@ -27,9 +28,9 @@ class Blockchain {
       * @param chain - passed as an argument to replace the chain array once verified to be valid
       *
       */
+
     replaceChain(chain) {
-
-
+        
         if(chain.length <= this.chain.length) {
             return;
         }
@@ -49,17 +50,25 @@ class Blockchain {
     *
     * */
     static isValidChain(chain) {
+
+        // Validate position 0 to ensure it's the Genesis Block
         if(JSON.stringify(chain[0]) !== JSON.stringify(Block.genesis())) {
             return false;
         }
+
+
+        /*
+        *  Validate the rest of the chain by iterating over the entire chain starting in the
+        *  first position because Chain 0 has already validated by the previous code.
+        */
+
         for(let i = 1; i < chain.length; i++ ) {
-            const block = chain[i];
+            const { timestamp, lastHash, hash,nonce, difficulty, data } = chain[i];
             const correctLastHash = chain[i-1].hash;
-            const { timestamp, lastHash, hash, data } = block;
 
-            if( lastHash !== correctLastHash) return false;
+            if(lastHash !== correctLastHash) return false;
 
-            const validatedHash = cryptoHash(timestamp, lastHash, data);
+            const validatedHash = cryptoHash(timestamp, lastHash, difficulty, nonce, data);
 
             if(hash !== validatedHash) return false;
          }
