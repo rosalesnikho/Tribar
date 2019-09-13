@@ -6,11 +6,13 @@ const cryptoHash = require('./crypto-hash');
 * Model for the Block class requiring minimum params for creating a block
 */
 class Block {
-	constructor({timestamp, lastHash, hash, data}) {
+	constructor({timestamp, lastHash, hash, data, nonce, difficulty}) {
 		this.timestamp = timestamp;
 		this.lastHash = lastHash;
 		this.hash = hash;
 		this.data = data;
+		this.nonce = nonce;
+		this.difficulty = difficulty;
 	}
 
 	/*
@@ -25,18 +27,22 @@ class Block {
 	*
 	*/
 	static mineBlock({ lastBlock, data }) {
-		const timestamp = Date.now();
+		let hash, timestamp;
+		// const timestamp = Date.now();
 		const lastHash = lastBlock.hash;
+		const { difficulty } = lastBlock;
+		let nonce = 0;
+		
+		do {
+			nonce++;
+			timestamp = Date.now();
+			hash = cryptoHash(timestamp, lastHash, data, nonce, difficulty);
+		} while (hash.substr(0, difficulty) !== '0'.repeat(difficulty));
 
-		return new this({
-			timestamp,
-			lastHash,
-			data,
-			hash: cryptoHash(timestamp, lastHash, data)
-		});
+
+		return new this({ timestamp, hash, lastHash, data, nonce, difficulty});
 	};
 }
-
 
 
 module.exports = Block;
