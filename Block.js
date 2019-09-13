@@ -27,6 +27,11 @@ class Block {
 	*/
 	static adjustDifficulty({ originalBlock, timestamp }) {
 		const { difficulty } = originalBlock;
+
+		// Set difficulty to always return 1
+		if(difficulty < 1) return 1;
+
+		// Set mined block difficulty to adjust based on MINE_RATE
 		if (timestamp - originalBlock.timestamp > MINE_RATE ) return difficulty - 1;
 		return difficulty + 1;
 	}
@@ -38,7 +43,7 @@ class Block {
 	static mineBlock({ lastBlock, data }) {
 		let hash, timestamp;
 		const lastHash = lastBlock.hash;
-		const { difficulty } = lastBlock;
+		let { difficulty } = lastBlock;
 		let nonce = 0;
 
 		/*
@@ -48,9 +53,9 @@ class Block {
 		do {
 			nonce++;
 			timestamp = Date.now();
+			difficulty = Block.adjustDifficulty({ originalBlock: lastBlock, timestamp, });
 			hash = cryptoHash(timestamp, lastHash, data, nonce, difficulty);
 		} while (hash.substr(0, difficulty) !== '0'.repeat(difficulty));
-
 
 		/*
 		* Returns mined blocks with data and correct time stamp
