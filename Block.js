@@ -1,6 +1,7 @@
 // Requires
 const { GENESIS_DATA, MINE_RATE } = require('./config');
 const cryptoHash = require('./crypto-hash');
+const hexToBinary = require('hex-to-binary');
 
 /*
 * Model for the Block class requiring minimum params for creating a block
@@ -55,7 +56,7 @@ class Block {
 			timestamp = Date.now();
 			difficulty = Block.adjustDifficulty({ originalBlock: lastBlock, timestamp, });
 			hash = cryptoHash(timestamp, lastHash, data, nonce, difficulty);
-		} while (hash.substr(0, difficulty) !== '0'.repeat(difficulty));
+		} while (hexToBinary(hash).substr(0, difficulty) !== '0'.repeat(difficulty));
 
 		/*
 		* Returns mined blocks with data and correct time stamp
