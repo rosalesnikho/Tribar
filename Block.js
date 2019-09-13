@@ -1,5 +1,5 @@
 // Requires
-const { GENESIS_DATA } = require('./config');
+const { GENESIS_DATA, MINE_RATE } = require('./config');
 const cryptoHash = require('./crypto-hash');
 
 /*
@@ -22,6 +22,15 @@ class Block {
 		return new this(GENESIS_DATA);
 	}
 
+	/*
+	*
+	*/
+	static adjustDifficulty({ originalBlock, timestamp }) {
+		const { difficulty } = originalBlock;
+		if (timestamp - originalBlock.timestamp > MINE_RATE ) return difficulty - 1;
+		return difficulty + 1;
+	}
+
 
 	/*
 	*
@@ -31,7 +40,11 @@ class Block {
 		const lastHash = lastBlock.hash;
 		const { difficulty } = lastBlock;
 		let nonce = 0;
-		
+
+		/*
+		* Mined block difficulty settings and verifying that each block mined resolves
+		* to the network difficulty levels.
+		*/
 		do {
 			nonce++;
 			timestamp = Date.now();
@@ -39,6 +52,9 @@ class Block {
 		} while (hash.substr(0, difficulty) !== '0'.repeat(difficulty));
 
 
+		/*
+		* Returns mined blocks with data and correct time stamp
+		*/
 		return new this({ timestamp, hash, lastHash, data, nonce, difficulty});
 	};
 }
