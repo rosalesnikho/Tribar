@@ -1,6 +1,8 @@
 const PubNub = require('pubnub');
 
 const credentials = {
+
+	// !!!!!! Dev keys only, replace for production !!!!!!!
 	publishKey: 'pub-c-ccc87f77-858e-4817-9682-0bab851604cd',
 	subscribeKey: 'sub-c-40cead6c-d746-11e9-87c7-92ba2ff8bd78',
 	secretKey: 'sec-c-MzdiMTNjNWItNTE1My00NjZhLWI2YzItOThjZjBlZDVmNGVl'
