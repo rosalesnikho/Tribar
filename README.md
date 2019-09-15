@@ -7,3 +7,9 @@
 
 
 This project is a Work In Progress (WIP) 
+
+## The Stack
+- Node JS
+- Express
+- PubNub
+- Jest (TDD)

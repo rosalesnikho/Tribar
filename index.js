@@ -1,10 +1,14 @@
 const bodyParses = require('body-parser');
 const express = require ('express');
 const Blockchain = require('./Blockchain');
+const PubSub = require('./pubsub');
 
 // Instantiate Express application
 const app  = express();
 const blockChain = new Blockchain();
+const pubSub = new PubSub({blockChain});
+
+setTimeout(() => pubSub.broadcastChain(), 1000);
 
 // Uses body parses to receive and send JSON
 app.use(bodyParses.json());
