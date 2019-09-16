@@ -34,7 +34,7 @@ app.post('/api/mine', (req, res) => {
 	 res.redirect('/api/blocks');
 });
 
-
+// Synchronizes block chain length across the network to all nodes
 const syncChains = () => {
 	request({ url: `${ROOT_NOTE_ADDRESS}/api/blocks`}, (error, response, body) => {
 		if(!error && response.statusCode === 200) {
@@ -44,8 +44,9 @@ const syncChains = () => {
 		}
 	})
 };
-// Port Setup
 
+
+// Port Setup
 let PEER_PORT;
 if(process.env.GENERATE_PEER_PORT === 'true') {
 	PEER_PORT = DEFAULT_PORT + Math.ceil(Math.random() * 1000 )

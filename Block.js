@@ -17,14 +17,16 @@ class Block {
 	}
 
 	/*
-	*
+	* Genesis data is the starting block
 	*/
 	static genesis() {
 		return new this(GENESIS_DATA);
 	}
 
 	/*
-	*
+	* Difficulty for how hard a mine can be blocked based mine rate
+	* The faster a block can be mined the difficulty is adjusted  on the next block
+	* the slower a block can be mined, difficulty is adjusted again
 	*/
 	static adjustDifficulty({ originalBlock, timestamp }) {
 		const { difficulty } = originalBlock;
@@ -39,7 +41,7 @@ class Block {
 
 
 	/*
-	*
+	* Main method for block mining
 	*/
 	static mineBlock({ lastBlock, data }) {
 		let hash, timestamp;
