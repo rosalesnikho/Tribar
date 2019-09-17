@@ -4,8 +4,8 @@
 *
 */
 const Block  = require('./Block');
-const { MINE_RATE } = require('./config');
-const cryptoHash = require('./crypto-hash');
+const { MINE_RATE } = require('../config');
+const cryptoHash = require('../util/crypto-hash');
 const hexToBinary = require ('hex-to-binary');
 
 
