@@ -8,8 +8,13 @@
 
 This project is a Work In Progress (WIP) 
 
-## The Stack
+## The Back-End Stack
 - Node JS
 - Express
 - PubNub
 - Jest (TDD)
+
+## The Front-End Stack
+- React JS 16.xx
+- Redux
+- Axios
