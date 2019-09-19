@@ -17,7 +17,7 @@ This project is a Work In Progress (WIP)
 - Node JS
 - Express
 - PubNub
-- Jest (TDD)
+- Jest ( TDD )
 
 ## The Front-End Stack
 - React JS 16.xx
