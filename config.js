@@ -21,8 +21,8 @@ const STARTING_BALANCE = 1000;
 */
 const GENESIS_DATA = {
 	timestamp: 1,
-	lastHash: '---',
-	hash: 'gen---',
+	lastHash: 'gen-last---',
+	hash: 'gen-hash---',
 	difficulty: INITIAL_DIFFICULTY,
 	nonce: 0,
 	data: []
