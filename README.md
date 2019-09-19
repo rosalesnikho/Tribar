@@ -8,6 +8,11 @@
 
 This project is a Work In Progress (WIP) 
 
+## ToDo:
+- Wallet
+- Design Front-End
+- ReactJS Front-End
+
 ## The Back-End Stack
 - Node JS
 - Express
