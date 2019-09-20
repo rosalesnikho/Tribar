@@ -31,6 +31,7 @@ describe('Transaction', () => {
         })
     });
 
+    //
     describe('input', () => {
         it('has an  `input`', () => {
             expect(transaction).toHaveProperty('input');
@@ -59,6 +60,7 @@ describe('Transaction', () => {
         });
     });
 
+    //
     describe('validTransaction()', () => {
         let errorMock;
 
@@ -76,18 +78,52 @@ describe('Transaction', () => {
         describe('when the transaction is invalid', () => {
             describe('and a transaction outputMap value is invalid', () => {
                 it('returns false & logs an error', () => {
-                    transaction.outputMap[senderWallet.publicKey] = 9999999;
+                    transaction.outputMap[senderWallet.publicKey] = 9999;
                     expect(Transaction.validTransaction(transaction)).toBe(false);
                     expect(errorMock).toHaveBeenCalled();
                 });
             });
+
             describe('and the transaction input signature is invalid', () => {
                 it('returns false', () => {
                     transaction.input.signature = new Wallet().sign('data');
                     expect(Transaction.validTransaction(transaction)).toBe(false);
                     expect(errorMock).toHaveBeenCalled();
                 })
-            })
-        })
-    })
+            });
+        });
+    });
+
+    //
+    describe('createTransaction()', () => {
+        describe('the amount exceeds the balance', () => {
+            it('throws and error', () => {
+                expect(() => Wallet.createTransaction({ amount: 9999999, recipient:'foo-recipient'}))
+                    .toThrow('Amount exceeds balance');
+            });
+        });
+
+        describe('and the amount is valid', () => {
+            let transaction, amount, recipient;
+
+            beforeEach(() => {
+            // Test data remove later
+                transaction = Wallet.createTransaction({ amount, recipient });
+                amount = 50;
+                recipient = 'foo-recipient';
+            });
+
+            it('creates an instance of `Transaction`', () =>{
+                expect(transaction instanceof Transaction).toBe(true);
+            });
+
+            it('matches the transaction input with the wallet', () => {
+                expect(transaction.input.address).toEqual(wallet.publicKey);
+            });
+
+            it('outputs the amount to the recipient', () => {
+                expect(transaction.outputMap[recipient]).toEqual(amount);
+            });
+        });
+    });
 });
