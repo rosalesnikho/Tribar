@@ -1,3 +1,4 @@
+const Transaction = require('./transaction');
 const {STARTING_BALANCE } = require('../config');
 const { eC, cryptoHash  } = require('../util/index');
 
@@ -8,6 +9,8 @@ const { eC, cryptoHash  } = require('../util/index');
 *
 * */
 class  Wallet {
+
+
 	constructor() {
 		this.balance = STARTING_BALANCE;
 		this.keyPair = eC.genKeyPair();
@@ -17,6 +20,15 @@ class  Wallet {
 	sign(data) {
 		return this.keyPair.sign(cryptoHash(data));
 	}
+
+	createTransaction(recipient, amount) {
+		if(amount > this.balance) {
+			throw new Error('Amount exceeds the balance');
+		}
+
+		return new Transaction({ senderWallet: this, recipient, amount })
+	}
+
 }
 
 module.exports = Wallet;
