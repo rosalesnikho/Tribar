@@ -9,8 +9,6 @@ const { eC, cryptoHash  } = require('../util/index');
 *
 * */
 class  Wallet {
-
-
 	constructor() {
 		this.balance = STARTING_BALANCE;
 		this.keyPair = eC.genKeyPair();
