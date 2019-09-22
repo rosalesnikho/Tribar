@@ -24,7 +24,7 @@ This project is a Work In Progress (WIP)
 - Redux
 - Axios
 
-## Completed
+## Completed so far
 - Created the core wallet class for the cryptocurrency.
 
 - Developed the cryptographic key pair and public key addressing system.
