@@ -3,10 +3,14 @@ const express = require ('express');
 const request = require('request');
 const Blockchain = require('./blockchain');
 const PubSub = require('./app/pubsub');
+const TransactionPool = require('./wallet/transaction-pool');
+const Wallet = require('./wallet');
 
-// Instantiate Express application
+// Instantiate Express application & other classes
 const app  = express();
 const blockChain = new Blockchain();
+const transactionPool = new TransactionPool();
+const wallet = new Wallet();
 const pubSub = new PubSub({blockChain});
 
 const DEFAULT_PORT = 3000;
@@ -32,6 +36,14 @@ app.post('/api/mine', (req, res) => {
 	 pubSub.broadcastChain();
 	 // Once block chain is added redirects to /api/blocks end point
 	 res.redirect('/api/blocks');
+});
+
+app.post('/api/transact', (req, res) => {
+	const { amount, recipient } = req.body;
+	const transaction = wallet.createTransaction({ recipient, amount })
+	transactionPool.setTransaction(transaction);
+	console.log('transactionPool', transactionPool);
+	res.json({ transaction });
 });
 
 // Synchronizes block chain length across the network to all nodes
