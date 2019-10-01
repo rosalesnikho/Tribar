@@ -40,10 +40,16 @@ app.post('/api/mine', (req, res) => {
 
 app.post('/api/transact', (req, res) => {
 	const { amount, recipient } = req.body;
-	const transaction = wallet.createTransaction({ recipient, amount })
+	let transaction;
+	try {
+		transaction = wallet.createTransaction({ recipient, amount });
+	} catch (e) {
+		return res.status(400).json({ type: 'e', message: e.message })
+	}
+
 	transactionPool.setTransaction(transaction);
 	console.log('transactionPool', transactionPool);
-	res.json({ transaction });
+	res.json({ type: 'success', transaction });
 });
 
 // Synchronizes block chain length across the network to all nodes
