@@ -38,6 +38,8 @@ app.post('/api/mine', (req, res) => {
 	 res.redirect('/api/blocks');
 });
 
+
+// Post request to create a new transaction between wallets
 app.post('/api/transact', (req, res) => {
 
 	const { amount, recipient } = req.body;
@@ -56,6 +58,11 @@ app.post('/api/transact', (req, res) => {
 	transactionPool.setTransaction(transaction);
 	console.log('transactionPool', transactionPool);
 	res.json({ type: 'success', transaction });
+});
+
+// Transaction Pool Map (T P M ) to retrieve all transactions
+app.get('/api/tpm', (req, res) => {
+	res.json(transactionPool.transactionMap);
 });
 
 // Synchronizes block chain length across the network to all nodes
