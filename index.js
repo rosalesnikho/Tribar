@@ -11,7 +11,7 @@ const app  = express();
 const blockChain = new Blockchain();
 const transactionPool = new TransactionPool();
 const wallet = new Wallet();
-const pubSub = new PubSub({blockChain});
+const pubSub = new PubSub({blockChain, transactionPool, wallet});
 
 const DEFAULT_PORT = 3000;
 const ROOT_NOTE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
@@ -44,7 +44,9 @@ app.post('/api/transact', (req, res) => {
 
 	const { amount, recipient } = req.body;
 
-	let transaction = transactionPool.existingTransaction({ inputAddress: wallet.publicKey });
+	let transaction = transactionPool
+		.existingTransaction({ inputAddress: wallet.publicKey });
+
 	try {
 		if(transaction) {
 			transaction.update({ senderWallet: wallet, recipient, amount })
@@ -56,8 +58,9 @@ app.post('/api/transact', (req, res) => {
 	}
 
 	transactionPool.setTransaction(transaction);
-	console.log('transactionPool', transactionPool);
+	pubSub.broadcastTransaction(transaction);
 	res.json({ type: 'success', transaction });
+
 });
 
 // Transaction Pool Map (T P M ) to retrieve all transactions
