@@ -50,7 +50,7 @@ class  Transaction {
 
 
     // Check validity of a transaction
-    static validTransaction(transaction) {
+     static validTransaction(transaction) {
         const {input: { address, amount, signature}, outputMap} = transaction;
 
         const outputTotal = Object.values(outputMap)

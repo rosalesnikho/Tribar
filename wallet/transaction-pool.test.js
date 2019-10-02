@@ -35,4 +35,34 @@ describe('TransactionPool', () => {
             ).toBe(transaction);
         })
     });
+
+    // Valid transaction
+    describe('validTransactions()', () => {
+        let validTransactions;
+
+        beforeEach(() => {
+            validTransactions = [];
+
+            for ( let i = 0; i < 10; i++) {
+                transaction = new Transaction({
+                    senderWallet,
+                    recipient: 'test-recip',
+                    amount: 33
+                });
+
+                if ( i % 3 === 0 ) {
+                    transaction.input.amount = 999999;
+                } else if (i % 3 === 1) {
+                    transaction.input.signature = new Wallet().sign('foo-test')
+                } else {
+                    validTransactions.push(transaction);
+                }
+                transactionPool.setTransaction(transaction)
+            }
+        });
+
+        it('returns valid transaction', () => {
+            expect(transactionPool.validTransactions()).toEqual(validTransactions);
+        });
+    });
 });
