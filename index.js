@@ -14,7 +14,7 @@ const wallet = new Wallet();
 const pubSub = new PubSub({blockChain, transactionPool, wallet});
 
 const DEFAULT_PORT = 3000;
-const ROOT_NOTE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
+const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
 
 setTimeout(() => pubSub.broadcastChain(), 1000);
 
@@ -69,14 +69,23 @@ app.get('/api/tpm', (req, res) => {
 });
 
 // Synchronizes block chain length across the network to all nodes
-const syncChains = () => {
-	request({ url: `${ROOT_NOTE_ADDRESS}/api/blocks`}, (error, response, body) => {
+const syncWithRootState = () => {
+	request({ url: `${ROOT_NODE_ADDRESS}/api/blocks`}, (error, response, body) => {
 		if(!error && response.statusCode === 200) {
 			const rootChain = JSON.parse(body);
 			console.log(`replaced chain on sync: ${rootChain}`);
 			blockChain.replaceChain(rootChain)
 		}
-	})
+	});
+
+	request({ url: `${ROOT_NODE_ADDRESS}/api/tpm` }, (error, response, body) => {
+		if(!error && response.statusCode === 200) {
+			const rootTransactionPoolMap = JSON.parse(body);
+
+			console.log('replace transaction pool map on sync with', rootTransactionPoolMap);
+			transactionPool.setMap(rootTransactionPoolMap);
+		}
+	});
 };
 
 
@@ -91,6 +100,6 @@ if(process.env.GENERATE_PEER_PORT === 'true') {
 const PORT = PEER_PORT || DEFAULT_PORT;
 app.listen(PORT, () => {
 	console.log('Listening at port: ' + PORT);
-	syncChains();
+	syncWithRootState();
 });
 
