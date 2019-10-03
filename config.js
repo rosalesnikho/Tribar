@@ -11,11 +11,6 @@ const MINE_RATE = 1000;
 const INITIAL_DIFFICULTY = 3;
 
 /*
-* Network Starting Currency balance
-*/
-const STARTING_BALANCE = 1000;
-
-/*
 * Starting block for the entire network
 *
 */
@@ -28,4 +23,13 @@ const GENESIS_DATA = {
 	data: []
 };
 
-module.exports = { GENESIS_DATA, MINE_RATE, STARTING_BALANCE };
+/*
+* Network Starting Currency balance
+*/
+const STARTING_BALANCE = 1000;
+
+const REWARD_INPUT = { address: '**Authorized-reward**' };
+
+const MINING_REWARD = 50;
+
+module.exports = { GENESIS_DATA, MINE_RATE, STARTING_BALANCE, REWARD_INPUT, MINING_REWARD };
