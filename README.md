@@ -9,7 +9,6 @@
 This project is a Work In Progress (WIP) 
 
 ## ToDo:
-- Wallet
 - Design Front-End
 - ReactJS Front-End
 
