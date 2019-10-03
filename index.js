@@ -5,6 +5,7 @@ const Blockchain = require('./blockchain');
 const PubSub = require('./app/pubsub');
 const TransactionPool = require('./wallet/transaction-pool');
 const Wallet = require('./wallet');
+const TransactionMiner = require('./app/transaction-miner');
 
 // Instantiate Express application & other classes
 const app  = express();
@@ -12,6 +13,7 @@ const blockChain = new Blockchain();
 const transactionPool = new TransactionPool();
 const wallet = new Wallet();
 const pubSub = new PubSub({blockChain, transactionPool, wallet});
+const transactionMiner = new TransactionMiner({ blockChain, transactionPool, wallet, pubSub });
 
 const DEFAULT_PORT = 3000;
 const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
@@ -23,8 +25,8 @@ app.use(bodyParses.json());
 
 
 // Get request to read block chain data
-app.get('/api/blocks', (req, res ) => {
-	res.json(blockChain.chain)
+app.get('/api/blocks', (req, res) => {
+	res.json(blockChain.chain);
 });
 
 
@@ -33,6 +35,7 @@ app.post('/api/mine', (req, res) => {
 	 const {data} = req.body;
 	 blockChain.addBlock({ data });
 
+	 //Broadcast chain as soon as it's created
 	 pubSub.broadcastChain();
 	 // Once block chain is added redirects to /api/blocks end point
 	 res.redirect('/api/blocks');
@@ -68,12 +71,18 @@ app.get('/api/tpm', (req, res) => {
 	res.json(transactionPool.transactionMap);
 });
 
+// Retrieved mined transactions
+app.get('/api/mine-transactions', (req, res) => {
+	transactionMiner.mineTransactions();
+	res.redirect('/api/blocks');
+});
+
 // Synchronizes block chain length across the network to all nodes
 const syncWithRootState = () => {
 	request({ url: `${ROOT_NODE_ADDRESS}/api/blocks`}, (error, response, body) => {
 		if(!error && response.statusCode === 200) {
 			const rootChain = JSON.parse(body);
-			console.log(`replaced chain on sync: ${rootChain}`);
+			console.log('replaced root chain on sync:', rootChain);
 			blockChain.replaceChain(rootChain)
 		}
 	});

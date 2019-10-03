@@ -34,6 +34,7 @@ class PubSub {
 		});
 	}
 
+
 	broadcastTransaction(transaction) {
 		this.publish({
 			channel: CHANNELS.TRANSACTION,
@@ -51,7 +52,7 @@ class PubSub {
 		return {
 			message: messageObject => {
 				const { channel, message } = messageObject;
-
+				console.log(`message received on channel: ${channel}. Message: ${message}`);
 				const parsedMessage = JSON.parse(message);
 
 				switch(channel) {
@@ -83,6 +84,21 @@ class PubSub {
 		this.pubnub.publish({ message, channel });
 	}
 
+	// broadcastChain() {
+	// 	this.publish({
+	// 		channel: CHANNELS.BLOCKCHAIN,
+	// 		message: JSON.stringify(this.blockChain.chain)
+	// 	});
+	// }
+	//
+	// broadcastTransaction(transaction) {
+	// 	this.publish({
+	// 		channel: CHANNELS.TRANSACTION,
+	// 		message: JSON.stringify(transaction)
+	// 	});
+	// }
 }
+
+
 
 module.exports = PubSub;

@@ -73,7 +73,7 @@ describe('TransactionPool', () => {
         });
     });
 
-    //
+    // clears transactions in the block chain
     describe('clear()', () => {
         it('clears the transactions', () => {
             transactionPool.clear();
