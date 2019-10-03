@@ -82,7 +82,7 @@ const syncWithRootState = () => {
 	request({ url: `${ROOT_NODE_ADDRESS}/api/blocks`}, (error, response, body) => {
 		if(!error && response.statusCode === 200) {
 			const rootChain = JSON.parse(body);
-			console.log('replaced root chain on sync:', rootChain);
+			console.log('replaced root chain on sync: ', rootChain);
 			blockChain.replaceChain(rootChain)
 		}
 	});

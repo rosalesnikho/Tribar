@@ -14,15 +14,15 @@ class TransactionPool {
         this.transactionMap[transaction.id] = transaction;
     }
 
-    setMap (transactionMap) {
+    setMap(transactionMap) {
         this.transactionMap = transactionMap;
     }
 
-    existingTransaction({ inputAddress }) {
+    existingTransaction({inputAddress}) {
         const transactions = Object.values(this.transactionMap);
 
         return transactions.find(transactions =>
-        transactions.input.address === inputAddress)
+            transactions.input.address === inputAddress)
     }
 
     validTransactions() {
