@@ -37,6 +37,7 @@ app.post('/api/mine', (req, res) => {
 
 	 //Broadcast chain as soon as it's created
 	 pubSub.broadcastChain();
+
 	 // Once block chain is added redirects to /api/blocks end point
 	 res.redirect('/api/blocks');
 });
@@ -67,7 +68,6 @@ app.post('/api/transact', (req, res) => {
 	transactionPool.setTransaction(transaction);
 	pubSub.broadcastTransaction(transaction);
 	res.json({ type: 'success', transaction });
-
 });
 
 // Transaction Pool Map (T P M ) to retrieve all transactions
@@ -79,6 +79,17 @@ app.get('/api/tpm', (req, res) => {
 app.get('/api/mine-transactions', (req, res) => {
 	transactionMiner.mineTransactions();
 	res.redirect('/api/blocks');
+});
+
+// Retrieve wallet information from each user
+app.get('/api/wallet-info', (req, res) => {
+	const address = wallet.publicKey;
+	res.json({
+		address,
+		balance: Wallet.calculateBalance({
+			chain: blockChain.chain,
+			address: wallet.publicKey })
+	})
 });
 
 // Synchronizes block chain length across the network to all nodes
@@ -94,7 +105,6 @@ const syncWithRootState = () => {
 	request({ url: `${ROOT_NODE_ADDRESS}/api/tpm` }, (error, response, body) => {
 		if(!error && response.statusCode === 200) {
 			const rootTransactionPoolMap = JSON.parse(body);
-
 			console.log('replace transaction pool map on sync with', rootTransactionPoolMap);
 			transactionPool.setMap(rootTransactionPoolMap);
 		}
@@ -105,10 +115,7 @@ const syncWithRootState = () => {
 // Port Setup
 let PEER_PORT;
 if(process.env.GENERATE_PEER_PORT === 'true') {
-	PEER_PORT = DEFAULT_PORT + Math.ceil(Math.random() * 1000 )
-}
-
-
+	PEER_PORT = DEFAULT_PORT + Math.ceil(Math.random() * 1000 )}
 
 const PORT = PEER_PORT || DEFAULT_PORT;
 app.listen(PORT, () => {
