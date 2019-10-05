@@ -74,3 +74,6 @@ yarn-error.log
 
 #Credential Keys
 SubscriptionKeys.js
+
+#parcel dist
+dist
