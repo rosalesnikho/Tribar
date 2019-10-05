@@ -1,6 +1,7 @@
 const bodyParses = require('body-parser');
 const express = require ('express');
 const request = require('request');
+const path = require('path');
 const Blockchain = require('./blockchain');
 const PubSub = require('./app/pubsub');
 const TransactionPool = require('./wallet/transaction-pool');
@@ -22,6 +23,7 @@ setTimeout(() => pubSub.broadcastChain(), 1000);
 
 // Uses body parses to receive and send JSON
 app.use(bodyParses.json());
+app.use(express.static(path.join(__dirname, 'client/dist')));
 
 
 // Get request to read block chain data
@@ -90,6 +92,12 @@ app.get('/api/wallet-info', (req, res) => {
 			chain: blockChain.chain,
 			address: wallet.publicKey })
 	})
+});
+
+
+// Serves up Client resources for React
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'client/dist/index.html'))
 });
 
 // Synchronizes block chain length across the network to all nodes
