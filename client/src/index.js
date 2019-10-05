@@ -1,6 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
+import App from './components/App';
 
 render(
-	<div>Tribar using Parcel! Now!56</div>, document.getElementById('root')
+	<App />,
+	document.getElementById('root')
 );
