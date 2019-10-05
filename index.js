@@ -97,7 +97,7 @@ app.get('/api/wallet-info', (req, res) => {
 
 // Serves up Client resources for React
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, 'client/dist/index.html'))
+	res.sendFile(path.join(__dirname, 'index.html'))
 });
 
 // Synchronizes block chain length across the network to all nodes
