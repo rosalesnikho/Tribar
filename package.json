@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build-client && node index.js",
     "test": "jest --watchAll",
-    "dev": "npm run dev-client & nodemon index.js",
+    "dev": "nodemon index.js",
     "dev-peer": "cross-env GENERATE_PEER_PORT='true' nodemon index.js",
     "build-client": "npm run clean && parcel build client/src/index.html --out-dir client/dist",
     "dev-client": "npm run clean && parcel client/src/index.html --out-dir client/dist",
@@ -24,7 +24,13 @@
     "jest": "^24.9.0"
   },
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "elliptic": "^6.5.1",
     "express": "^4.17.1",
     "hex-to-binary": "^1.0.1",
