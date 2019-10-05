@@ -2,7 +2,7 @@ const Blockchain = require('./index');
 const Block = require('./Block');
 const cryptoHash = require('../util/crypto-hash');
 const Wallet = require('../wallet');
-const Transaction = require('../wallet/transaction')
+const Transaction = require('../wallet/transaction');
 
 /*
  *
@@ -86,15 +86,82 @@ describe('Blockhain', () => {
         });
     });
 
-    describe('replaceChain()', () =>{
+    describe('replaceChain()', () => {
 
-        describe('When the new chain is not longer', () => {
-            it('does not replace the chain', () => {
-                newChain.chain[0] = { new: 'chain'};
+        let logMock;
+
+        beforeEach(() => {
+            logMock = jest.fn();
+
+            global.console.log = logMock;
+        });
+
+        describe('when the new chain is not longer', () => {
+            beforeEach(() => {
+                newChain.chain[0] = { new: 'chain' };
+
                 blockChain.replaceChain(newChain.chain);
+            });
+
+            it('does not replace the chain', () => {
                 expect(blockChain.chain).toEqual(originalChain);
             });
-        })
+
+            it('logs an error', () => {
+                expect(errorMock).toHaveBeenCalled();
+            });
+        });
+
+        describe('when the new chain is longer', () => {
+            beforeEach(() => {
+                newChain.addBlock({ data: 'Bears' });
+                newChain.addBlock({ data: 'Beets' });
+                newChain.addBlock({ data: 'Battlestar Galactica' });
+            });
+
+            describe('and the chain is invalid', () => {
+                beforeEach(() => {
+                    newChain.chain[2].hash = 'some-fake-hash';
+
+                    blockChain.replaceChain(newChain.chain);
+                });
+
+                it('does not replace the chain', () => {
+                    expect(blockChain.chain).toEqual(originalChain);
+                });
+
+                it('logs an error', () => {
+                    expect(errorMock).toHaveBeenCalled();
+                });
+            });
+
+            describe('and the chain is valid', () => {
+                beforeEach(() => {
+                    blockChain.replaceChain(newChain.chain);
+                });
+
+                it('replaces the chain', () => {
+                    expect(blockChain.chain).toEqual(newChain.chain);
+                });
+
+                it('logs about the chain replacement', () => {
+                    expect(logMock).toHaveBeenCalled();
+                });
+            });
+        });
+
+        describe('and the `validateTransactions` flag is true', () => {
+            it('calls validTransactionData()', () => {
+                const validTransactionDataMock = jest.fn();
+
+                blockChain.validTransactionData = validTransactionDataMock;
+
+                newChain.addBlock({ data: 'foo' });
+                blockChain.replaceChain(newChain.chain, true);
+
+                expect(validTransactionDataMock).toHaveBeenCalled();
+            });
+        });
     });
 
     describe('validTransactionData()', () => {
