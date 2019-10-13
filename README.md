@@ -3,65 +3,69 @@
     <img alt="Tribar" src="https://i.imgur.com/KlPaqCk.png" width="60" />
   </a>
 </p>
-<h1 align="center">Tribar | Crypto + Wallet + Blockchain </h1>
+<h1 align="center">Tribar | Crypto + Wallet + Blockchain Starter Project</h1>
 
 
-This project is a Work In Progress (WIP) 
+Start your own blockchain with Tribar. This is a starter repo for your very own blockchain, wallet and crypto currency
+mining. Use the project however you wish for any application. 
 
-## ToDo:
-- Design Front-End
-- ReactJS Front-End
+## Key Features
+- Fully functioning Blockchain 
+- Ability to mine cryptocurrency with dynamic difficulty adjustment
+- Launch mutliple instances for a fully autonomous blockchain network
+- API end points for mining, transactions, wallets and more
+- Fully tested back-end using JEST, TDD.
 
 ## The Back-End Stack
 - Node JS
 - Express
-- PubNub
+- PubNub (Account required)
 - Jest ( TDD )
 
 ## The Front-End Stack
 - React JS 16.xx
-- Redux
-- Axios
 
-## Completed so far
-- Created the core wallet class for the cryptocurrency.
+## Tribar Features List 
+- Created the core wallet class for the crypto currency.
 
-- Developed the cryptographic key pair and public key addressing system.
+- Ability for the cryptographic key pair and public key addressing system.
 
-- Implementing signature generation and verification to make transactions official.
+- Signature generation and verification to make transactions.
 
-- Built the main transaction class - with the output map and input structure.
+- Includes functionality to actually validate transactions.
 
-- Developed functionality to actually validate transactions.
+- Ties transaction creation with the wallet class.
 
-- Tied transaction creation with the wallet class.
+- Allows transactions to be updated with multiple outputs to efficiently use existing objects.
 
-- Allowed transactions to be updated with multiple outputs to efficiently use existing objects.
+- Improves the hash function to recognize objects with new properties as changes in incoming data.
 
-- Improved the hash function to recognize objects with new properties as changes in incoming data.
+- Covers edges cases with transaction updates to prevent vulnerabilities.
 
-- Covered edges cases with transaction updates to prevent vulnerabilities.
+- Creates the core transaction miner class to capture how miners should add transactions to the blockchain.
 
-- Created the core transaction miner class to capture how miners should add transactions to the blockchain.
+- Has the ability to grab valid transactions from the transaction pool.
 
-- Added the ability to grab valid transactions from the transaction pool.
+- Clears blockchain transactions to ensure that only unique transaction objects could be recorded.
 
-- Added a way to clear blockchain transactions to ensure that only unique transaction objects could be recorded.
+- Adds a mining transactions endpoint to enable transaction mining through the API.
 
-- Added a mining transactions endpoint to enable transaction mining through the API.
+- Clears recorded transactions on a successful replacement of the blockchain.
 
-- Cleared recorded transactions on a successful replacement of the blockchain.
+- Calculates the wallet balance based on the blockchain history.
 
-- Calculated the wallet balance based on the blockchain history.
+- Appplies wallet balances whenever conducting a new transaction.
 
-- Applied these wallet balances whenever conducting a new transaction.
+- Exposes the wallet information including the public key and balance through the API.
 
-- Exposed the wallet information including the public key and balance through the API.
+- Validates transaction data incoming into the blockchain.
 
-- Validated transaction data incoming into the blockchain.
+- Validates incoming transaction input balances.
 
-- Validated incoming transaction input balances.
+- Prevents duplicate transactions from appearing in a block’s data.
 
-- Prevented duplicate transactions from appearing in a block’s data.
+- Validates the entire transaction itself when accepting new user-contributed blockchains.
 
-- Validated the entire transaction itself when accepting new user-contributed blockchains.
+
+## License 
+All parts of Tribar are free to use and abuse under the [open-source MIT license]
