@@ -127,7 +127,6 @@ app.use(cors());
 	};
 
 //	Data Seeder
-
 	const walletFoo = new Wallet();
 	const walletBar = new Wallet();
 
@@ -151,11 +150,11 @@ app.use(cors());
 		wallet: walletBar, recipient: wallet.publicKey, amount: 15
 	});
 
-	for (let i=0; i<9; i++) {
-		if (i%3 === 0) {
+	for (let i = 0; i < 10; i++) {
+		if (i % 3 === 0) {
 			walletAction();
 			walletFooAction();
-		} else if (i%3 === 1) {
+		} else if (i % 3 === 1) {
 			walletAction();
 			walletBarAction();
 		} else {
@@ -167,7 +166,7 @@ app.use(cors());
 	}
 
 
-// Port Setup
+	// Port Setup
 	let PEER_PORT;
 	if (process.env.GENERATE_PEER_PORT === 'true') {
 		PEER_PORT = DEFAULT_PORT + Math.ceil(Math.random() * 1000)

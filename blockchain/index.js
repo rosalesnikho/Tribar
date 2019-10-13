@@ -1,11 +1,10 @@
 const Block = require('./Block');
-const cryptoHash = require('../util/crypto-hash');
 const Transaction = require('../wallet/transaction');
 const Wallet = require('../wallet');
+const { cryptoHash } = require('../util/');
 const { REWARD_INPUT, MINING_REWARD } = require('../config');
 
 class Blockchain {
-
     constructor () {
         this.chain = [Block.genesis()];
     }
@@ -115,7 +114,7 @@ class Blockchain {
     * @method isValidChain - checks the validity of each chain
     * @param chain - is passed to check to valid chain block
     *
-    * */
+    */
     static isValidChain(chain) {
 
         // Validate position 0 to ensure it's the Genesis Block
@@ -125,18 +124,20 @@ class Blockchain {
 
 
         /*
+        *
         *  Validate the rest of the chain by iterating over the entire chain starting in the
         *  first position because Chain 0 has already validated by the previous code.
+        *
         */
 
         for(let i = 1; i < chain.length; i++ ) {
-            const { timestamp, lastHash, hash,nonce, difficulty, data } = chain[i];
+            const { timestamp, lastHash, hash, nonce, difficulty, data } = chain[i];
             const correctLastHash = chain[i-1].hash;
             const lastDifficulty = chain[i-1].difficulty;
 
             if(lastHash !== correctLastHash) return false;
 
-            const validatedHash = cryptoHash(timestamp, lastHash, difficulty, nonce, data);
+            const validatedHash = cryptoHash(timestamp, lastHash, data, nonce, difficulty);
 
             if(hash !== validatedHash) return false;
             if(Math.abs(lastDifficulty - difficulty) > 1) return false;
