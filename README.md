@@ -6,15 +6,25 @@
 <h1 align="center">Tribar | Crypto + Wallet + Blockchain Starter Project</h1>
 
 
-Start your own blockchain with Tribar. This is a starter repo for your very own blockchain, wallet and crypto currency
+Start your own blockchain + crypto currency with Tribar!. This is a starter repo for your very own blockchain, wallet and crypto currency
 mining. Use the project however you wish for any application. 
 
 ## Key Features
 - Fully functioning Blockchain 
 - Ability to mine cryptocurrency with dynamic difficulty adjustment
-- Launch mutliple instances for a fully autonomous blockchain network
+- Launch multiple instances for a fully autonomous connected blockchain network
 - API end points for mining, transactions, wallets and more
 - Fully tested back-end using JEST, TDD.
+
+## Requirements
+1. NodeJS / NPM / Yarn
+
+## How to get started ( Development )
+1. Install NodeJS
+1. Download or Clone this repo
+1. Inside the project folder of Tribar - type: `npm install`
+1. Inside the project folder of Tribar - type: `npm run dev`
+1. Visit `localhost:1234` on your  browser to visualize blockchain
 
 ## The Back-End Stack
 - Node JS
@@ -26,7 +36,7 @@ mining. Use the project however you wish for any application.
 - React JS 16.xx
 
 ## Tribar Features List 
-- Created the core wallet class for the crypto currency.
+- Core wallet for the crypto currency.
 
 - Ability for the cryptographic key pair and public key addressing system.
 
@@ -54,7 +64,7 @@ mining. Use the project however you wish for any application.
 
 - Calculates the wallet balance based on the blockchain history.
 
-- Appplies wallet balances whenever conducting a new transaction.
+- Applies wallet balances whenever conducting a new transaction.
 
 - Exposes the wallet information including the public key and balance through the API.
 
@@ -68,4 +78,4 @@ mining. Use the project however you wish for any application.
 
 
 ## License 
-All parts of Tribar are free to use and abuse under the [open-source MIT license]
+All parts of Tribar are free to use and abuse under the `open-source MIT license`
