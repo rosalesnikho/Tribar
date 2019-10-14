@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Transaction from "./Transaction";
 
 class Block extends Component {
     // Set initial state of the Block component
@@ -6,7 +7,7 @@ class Block extends Component {
 
     // Toggles the showing of more data
     toggleTransaction = () => {
-        this.setState({ displayTransaction: !this.setState.displayTransaction })
+        this.setState({ displayTransaction: !this.state.displayTransaction })
     }
 
     // Getter for displaying transactional data from the block
@@ -16,15 +17,22 @@ class Block extends Component {
         // Data render & stringify
         // Checks length is > 15 characters
         const stringData = JSON.stringify(data);
-        const dataRender = stringData.length > 35 ?
-            `${stringData.substring(0, 35)}...` : stringData;
+        const dataRender = stringData.length > 30 ?
+            `${stringData.substring(0, 30)}...` : stringData;
 
         if (this.state.displayTransaction) {
             return (
                 <div>
-                    {JSON.stringify(data)}
+                    {
+                        data.map(transaction => (
+                            <div key={transaction.id}>
+                                <hr />
+                                <Transaction transaction={transaction} />
+                            </div>
+                        ))
+                    }
                     <br />
-                    <button className="button-primary" onClick={this.toggleTransaction}>View Less</button>
+                    <button className='button-primary' onClick={this.toggleTransaction}>View Less</button>
                 </div>
             )
         }
@@ -32,7 +40,7 @@ class Block extends Component {
         return (
             <div>
                 <div>Data: {dataRender}</div>
-                <button className="button-primary" onClick={this.toggleTransaction}>View More</button>
+                <button className='button-primary' onClick={this.toggleTransaction}>View More</button>
             </div>
         );
     }
@@ -42,8 +50,6 @@ class Block extends Component {
 
         // Hash render & stringify
         const hashDisplay = `${hash.substring(0, 15)}...`;
-
-
 
         return (
             <div className='Block'>
