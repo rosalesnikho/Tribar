@@ -9,12 +9,16 @@
 Start your own blockchain + crypto currency with Tribar! This is a starter repo for your very own blockchain, wallet and crypto currency
 mining. Use the project however you wish for any application. 
 
+
 ## Key Features
 - Fully functioning Blockchain 
 - Ability to mine cryptocurrency with dynamic difficulty adjustment
 - Launch multiple instances for a fully autonomous connected blockchain network
 - API end points for mining, transactions, wallets and more
 - Fully tested back-end using JEST, TDD.
+
+## Code Climate Grades
+[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
 ## Requirements
 1. NodeJS / NPM / Yarn
