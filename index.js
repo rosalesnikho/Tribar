@@ -103,9 +103,9 @@ app.use(cors());
 
 
 // Serves up Client resources for React
-	app.get('*', (req, res) => {
-		res.sendFile(path.join(__dirname, 'index.html'))
-	});
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'client/dist/index.html'));
+});
 
 // Synchronizes block chain length across the network to all nodes
 	const syncWithRootState = () => {

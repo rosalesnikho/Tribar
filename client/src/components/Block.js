@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Transaction from "./Transaction";
+import Transaction from './Transaction';
 
 class Block extends Component {
     // Set initial state of the Block component
