@@ -149,9 +149,9 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1EAEDB; }
+  color: #a3f7bf; }
 a:hover {
-  color: #0FA0CE; }
+  color: #29a19c; }
 
 
 /* Buttons
@@ -164,7 +164,7 @@ input[type="button"] {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
-  color: #555;
+  color: #FFF;
   text-align: center;
   font-size: 11px;
   font-weight: 600;
@@ -175,7 +175,7 @@ input[type="button"] {
   white-space: nowrap;
   background-color: transparent;
   border-radius: 4px;
-  border: 1px solid #bbb;
+  border: 1px solid #a3f7bf;
   cursor: pointer;
   box-sizing: border-box; }
 .button:hover,
@@ -188,17 +188,17 @@ button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
-  color: #333;
-  border-color: #888;
+  color: #435055;
+  background-color: #a3f7bf;
   outline: 0; }
 .button.button-primary,
 button.button-primary,
 input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary {
-  color: #FFF;
-  background-color: #33C3F0;
-  border-color: #33C3F0; }
+  color: #435055;
+  background-color: #a3f7bf;
+  border-color: #a3f7bf; }
 .button.button-primary:hover,
 button.button-primary:hover,
 input[type="submit"].button-primary:hover,
@@ -209,9 +209,9 @@ button.button-primary:focus,
 input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus {
-  color: #FFF;
-  background-color: #1EAEDB;
-  border-color: #1EAEDB; }
+  color: #FFFFFF;
+  background-color: #a3f7bf;
+  border-color: #a3f7bf; }
 
 
 /* Forms
@@ -228,7 +228,7 @@ select {
   height: 38px;
   padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
   background-color: #fff;
-  border: 1px solid #D1D1D1;
+  border: 1px solid #a3f7bf;
   border-radius: 4px;
   box-shadow: none;
   box-sizing: border-box; }
@@ -257,7 +257,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
-  border: 1px solid #33C3F0;
+  border: 1px solid #a3f7bf;
   outline: 0; }
 label,
 legend {
@@ -303,7 +303,7 @@ code {
   font-size: 90%;
   white-space: nowrap;
   background: #F1F1F1;
-  border: 1px solid #E1E1E1;
+  border: 1px solid #a3f7bf;
   border-radius: 4px; }
 pre > code {
   display: block;
@@ -368,7 +368,7 @@ hr {
   margin-top: 3rem;
   margin-bottom: 3.5rem;
   border-width: 0;
-  border-top: 1px solid #E1E1E1; }
+  border-top: 1px solid #a3f7bf; }
 
 
 /* Clearing

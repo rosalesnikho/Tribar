@@ -1,0 +1,80 @@
+body {
+    color: #FFFFFF;
+    background-color: #27323a;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: bold;
+    color: aliceblue;
+}
+
+/* Landing */
+
+.section-main-landing {
+    padding-top: 6%;
+    padding-bottom: 6%;
+    height: 42vh;
+}
+
+.landing-image-wrapper img {
+    height: 256px;
+    width: auto;
+    display:block;
+    margin:auto;
+}
+
+.section-features img{
+    height: 64px;
+    width: auto;
+    display:block;
+    margin:auto;
+}
+
+.section-features {
+    text-align: center;
+}
+
+/* Key Features */
+.section-key-features {
+    height: 33%;
+    padding: 3%;
+    background-color: #435055;
+}
+
+.section-key-features h3 {
+    text-align: center;
+}
+
+.section-features img {
+    padding-bottom: 3%;
+}
+
+/* Get Started*/
+
+.section-get-started {
+    height: 33%;
+    padding: 3%;
+}
+
+.section-get-started img {
+    padding-top: 6%;
+    display:block;
+    margin:auto;
+}
+
+
+/* Get Started */
+
+.get-started img {
+    height: 256px;
+    opacity: .33%;
+    width: auto;
+}
+
+
+
+
