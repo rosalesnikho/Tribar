@@ -18,7 +18,7 @@ class Block extends Component {
         // Checks length is > 15 characters
         const stringData = JSON.stringify(data);
         const dataRender = stringData.length > 30 ?
-            `${stringData.substring(0, 30)}...` : stringData;
+            `${stringData.substring(0, 33)}...` : stringData;
 
         if (this.state.displayTransaction) {
             return (
@@ -49,7 +49,7 @@ class Block extends Component {
         const { timestamp, hash } = this.props.block;
 
         // Hash render & stringify
-        const hashDisplay = `${hash.substring(0, 15)}...`;
+        const hashDisplay = `${hash.substring(0, 33)}...`;
 
         return (
             <div className='Block'>

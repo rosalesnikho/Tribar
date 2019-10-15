@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Blocks from './Blocks'
+import Landing from "./Landing";
+import Footer from "./common/footer";
 
 class App extends Component {
 	state = { walletInfo: {}};
@@ -16,9 +17,13 @@ class App extends Component {
 
 		return (
 			<div>
-				<h3>Tribar</h3>
-				<p>Address: {address}</p>
-				<p>Balance: {balance}</p>
+				<Landing />
+				<div className="container">
+					<h5>Current Balance</h5>
+					<p>Address: {address}</p>
+					<p>Balance: {balance}</p>
+				</div>
+				<Footer />
 			</div>
 		);
 	}

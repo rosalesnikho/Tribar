@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.tribar.io">
+  <a href="https://www.tribar.xyz">
     <img alt="Tribar" src="https://i.imgur.com/KlPaqCk.png" width="60" />
   </a>
 </p>
