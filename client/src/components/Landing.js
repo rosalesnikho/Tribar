@@ -8,7 +8,7 @@ class Landing extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="columns six">
-                                <h3>Tribar</h3>
+                                <h1 className="tribar-main-text">TRIBAR</h1>
                                 <h5>Blockchain + Cryptocurrency + Wallet</h5>
                                 <p>A starter kit for your blockchain projects</p>
                                 <a href="https://github.com/rosalesnikho/Tribar" className="button">Get Started</a>

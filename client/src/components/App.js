@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Landing from "./Landing";
-import Footer from "./common/footer";
+import Navigation from "./common/Navigation";
+import Landing from './Landing';
+import Footer from './common/Footer';
 
 class App extends Component {
 	state = { walletInfo: {}};
@@ -17,6 +18,7 @@ class App extends Component {
 
 		return (
 			<div>
+				<Navigation />
 				<Landing />
 				<div className="container">
 					<h5>Current Balance</h5>
