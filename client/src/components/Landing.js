@@ -9,9 +9,12 @@ class Landing extends Component {
                         <div className="row">
                             <div className="columns six">
                                 <h1 className="tribar-main-text">TRIBAR</h1>
-                                <h5>Blockchain <span className="plus-accent">+</span> Crypto <span className="plus-accent">+</span> Wallet</h5>
-                                <p>A starter kit for your blockchain projects. Tribar is a fully functional blockchain built in NodeJS.</p>
-                                <a href="https://github.com/rosalesnikho/Tribar" className="button">Get Started</a> <a href="/documentation" className="button">Learn More</a>
+                                <h5>Blockchain <span className="plus-accent">+</span> Crypto <span
+                                    className="plus-accent">+</span> Wallet</h5>
+                                <p>A starter kit for your blockchain projects. Tribar is a fully functional blockchain
+                                    built in NodeJS.</p>
+                                <a href="https://github.com/rosalesnikho/Tribar" className="button">Get Started</a> <a
+                                href="/documentation" className="button">Learn More</a>
                             </div>
                             <div className="columns six landing-image-wrapper">
                                 <img className="landing-image" src={require('/img/penrose-square.png')}
@@ -82,6 +85,23 @@ class Landing extends Component {
                                     <li>Visit localhost:3000 on your browser to visualize blockchain</li>
                                 </ul>
                                 <a href="https://github.com/rosalesnikho/Tribar" className="button">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="section-contact-me">
+                    {/*    Contact Me Section */}
+                    <div className="container">
+                        <div className="row">
+                            <div className="columns six">
+                                <h3>Looking for expert advice for your blockchain project?</h3>
+                                <p>Tribar is made for developers that know how to deploy multiple NodeJS instances. If you need
+                                    helping setting up an instance of tribar, blockchain advice, or deployment send me a note!</p>
+                                <a href="mailto:contact@tribar.xyz?subject=re: Tribar.xyz | Inquiry" className="button">Let's Talk</a>
+                            </div>
+                            <div className="columns six get-started">
+                                <img src={require('/img/email-settings.png')} alt=""/>
                             </div>
                         </div>
                     </div>
