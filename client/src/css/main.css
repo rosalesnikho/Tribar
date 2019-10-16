@@ -137,3 +137,22 @@ footer {
 .plus-accent {
     color: #a3f7bf;
 }
+
+.skewed-bg {
+    padding: 90px 0;
+    -webkit-transform: skew(0deg, -3deg);
+    transform: skew(0deg, -3deg);
+}
+.skewed-bg .content {
+    -webkit-transform: skew(0deg, 3deg);
+    transform: skew(0deg, 3deg);
+    text-align: center;
+}
+.skewed-bg .content  {
+    font-weight: normal;
+}
+.skewed-bg .content .text {
+    width: 60%;
+    margin: 25px auto;
+    color: #ccfff2;
+}

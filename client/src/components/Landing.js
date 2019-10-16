@@ -25,8 +25,8 @@ class Landing extends Component {
                 </div>
 
                 {/* Main Landing Page*/}
-                <div className="section-key-features">
-                    <div className="container">
+                <div className="section-key-features skewed-bg">
+                    <div className="container content">
                         {/* Features */}
                         <h3>Key Features</h3>
                         <div className="row">
