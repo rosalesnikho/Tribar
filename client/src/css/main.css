@@ -12,7 +12,28 @@ h5 {
     color: aliceblue;
 }
 
+
+a {
+    text-decoration: none;
+}
+
+/* Navigation */
+nav li {
+    padding-top: 3%;
+    padding-right: 3%;
+    font-weight: bold;
+    font-family: 'Roboto Mono', monospace;
+    display: inline-block;
+    list-style: none;
+}
+
+
 /* Landing */
+.tribar-main-text {
+    font-family: 'Audiowide', cursive;
+    font-size: 6em;
+    text-shadow: 4px 4px 2px rgba(150,255,185,0.3);
+}
 
 .section-main-landing {
     padding-top: 6%;
@@ -21,10 +42,11 @@ h5 {
 }
 
 .landing-image-wrapper img {
-    height: 256px;
+    height: 330px;
     width: auto;
     display:block;
     margin:auto;
+    opacity: 0.33%;
 }
 
 .section-features img{
@@ -76,5 +98,13 @@ h5 {
 }
 
 
+/* Footer  */
+footer {
+    height: 150px;
+    background-color:#435055 ;
+}
 
-
+.section-footer {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
