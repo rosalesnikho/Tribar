@@ -16,17 +16,10 @@ class App extends Component {
 	render() {
 		const { address, balance } = this.state.walletInfo;
 
-
-
 		return (
 			<div>
 				<Navigation />
 				<Landing />
-				{/*<div className="container">*/}
-				{/*	<h5>Current Balance</h5>*/}
-				{/*	<p>Address: {address}</p>*/}
-				{/*	<p>Balance: {balance}</p>*/}
-				{/*</div>*/}
 				<Footer />
 			</div>
 		);
