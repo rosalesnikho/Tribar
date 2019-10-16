@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Block from './Block'
+import Navigation from "./common/Navigation";
+import Footer from "./common/Footer";
 
 
 class Blocks extends Component {
@@ -14,15 +16,23 @@ class Blocks extends Component {
 	render() {
 		return (
 			<div>
-				<h3>Blocks Array</h3>
-				{
-					this.state.blocks.map(block => {
-						return (
-							<Block key={block.hash} block={block} />
-						)
-					})
-				}
+				<Navigation/>
+					<div className="section-all-blocks">
+						<div className="container">
+							<h3>All Network Blocks Array</h3>
+							{
+								this.state.blocks.map(block => {
+									return (
+										<Block key={block.hash} block={block} />
+									)
+								})
+							}
+
+						</div>
+					</div>
+				<Footer/>
 			</div>
+
 		);
 	}
 }
