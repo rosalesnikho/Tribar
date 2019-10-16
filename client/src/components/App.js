@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Navigation from "./common/Navigation";
 import Landing from './Landing';
+import Navigation from "./common/Navigation";
 import Footer from './common/Footer';
 
 class App extends Component {
@@ -16,15 +16,17 @@ class App extends Component {
 	render() {
 		const { address, balance } = this.state.walletInfo;
 
+
+
 		return (
 			<div>
 				<Navigation />
 				<Landing />
-				<div className="container">
-					<h5>Current Balance</h5>
-					<p>Address: {address}</p>
-					<p>Balance: {balance}</p>
-				</div>
+				{/*<div className="container">*/}
+				{/*	<h5>Current Balance</h5>*/}
+				{/*	<p>Address: {address}</p>*/}
+				{/*	<p>Balance: {balance}</p>*/}
+				{/*</div>*/}
 				<Footer />
 			</div>
 		);

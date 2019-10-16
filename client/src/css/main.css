@@ -89,24 +89,45 @@ nav li {
 }
 
 
-/* Get Started */
+/* Get Started  & Contact Me */
 
 .get-started img {
     height: 256px;
-    opacity: .33%;
+    opacity: .15%;
     width: auto;
 }
+
+.section-contact-me img {
+    padding-top: 6%;
+    display:block;
+    margin:auto;
+}
+
+.section-contact-me {
+    background-color: #435055;
+}
+
 
 
 /* Footer  */
 footer {
     height: 150px;
-    background-color:#435055 ;
+    margin-top: 50px;
 }
 
+
 .section-footer {
+    border-top-color: #a3f7bf;
     padding-top: 3%;
     padding-bottom: 3%;
+}
+
+.section-footer li {
+    list-style: none;
+}
+
+.footer-sub {
+    padding-left: 6%;
 }
 
 /* Utilities */

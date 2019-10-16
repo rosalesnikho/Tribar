@@ -8,7 +8,7 @@ class Block extends Component {
     // Toggles the showing of more data
     toggleTransaction = () => {
         this.setState({ displayTransaction: !this.state.displayTransaction })
-    }
+    };
 
     // Getter for displaying transactional data from the block
     get displayTransaction() {

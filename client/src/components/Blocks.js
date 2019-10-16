@@ -27,7 +27,6 @@ class Blocks extends Component {
 									)
 								})
 							}
-
 						</div>
 					</div>
 				<Footer/>
