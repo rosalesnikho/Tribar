@@ -9,9 +9,9 @@ class Landing extends Component {
                         <div className="row">
                             <div className="columns six">
                                 <h1 className="tribar-main-text">TRIBAR</h1>
-                                <h5>Blockchain + Cryptocurrency + Wallet</h5>
-                                <p>A starter kit for your blockchain projects</p>
-                                <a href="https://github.com/rosalesnikho/Tribar" className="button">Get Started</a>
+                                <h5>Blockchain <span className="plus-accent">+</span> Crypto <span className="plus-accent">+</span> Wallet</h5>
+                                <p>A starter kit for your blockchain projects. Tribar is a fully functional blockchain built in NodeJS.</p>
+                                <a href="https://github.com/rosalesnikho/Tribar" className="button">Get Started</a> <a href="/documentation" className="button">Learn More</a>
                             </div>
                             <div className="columns six landing-image-wrapper">
                                 <img className="landing-image" src={require('/img/penrose-square.png')}
@@ -20,8 +20,8 @@ class Landing extends Component {
                         </div>
                     </div>
                 </div>
-                {/* Main Landing Page*/}
 
+                {/* Main Landing Page*/}
                 <div className="section-key-features">
                     <div className="container">
                         {/* Features */}
@@ -29,7 +29,7 @@ class Landing extends Component {
                         <div className="row">
                             <div className="columns three section-features">
                                 <img src={require('/img/block-large.png')} alt=""/>
-                                <h6>Fully Functional Blockchain</h6>
+                                <h6>Networked Blockchain</h6>
                             </div>
                             <div className="columns three section-features">
                                 <img src={require('/img/value.png')} alt=""/>
@@ -76,12 +76,12 @@ class Landing extends Component {
                                 <h3>Get started with Tribar</h3>
                                 <ul className="get-started-list">
                                     <li>Install NodeJS</li>
-                                    <li><a href="https://github.com/rosalesnikho/Tribar">Download or Clone the Tribar Repo</a></li>
-                                    <li>Inside the project folder of Tribar - type: npm install</li>
-                                    <li>Inside the project folder of Tribar - type: npm run dev</li>
+                                    <li>Download or Clone the Tribar Repo</li>
+                                    <li>Inside the project folder of Tribar - type: <b>npm install</b></li>
+                                    <li>Inside the project folder of Tribar - type: <b>npm run dev</b></li>
                                     <li>Visit localhost:3000 on your browser to visualize blockchain</li>
                                 </ul>
-
+                                <a href="https://github.com/rosalesnikho/Tribar" className="button">Download</a>
                             </div>
                         </div>
                     </div>

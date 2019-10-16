@@ -28,7 +28,7 @@ mining. Use the project however you wish for any application.
 1. Download or Clone this repo
 1. Inside the project folder of Tribar - type: `npm install`
 1. Inside the project folder of Tribar - type: `npm run dev`
-1. Visit `localhost:1234` on your  browser to visualize blockchain
+1. Visit `localhost:3000 (also available on port: 1234` on your  browser to visualize blockchain
 
 ## The Back-End Stack
 - Node JS
