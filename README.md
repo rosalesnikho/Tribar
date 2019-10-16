@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.tribar.xyz">
-    <img alt="Tribar" src="https://i.imgur.com/KlPaqCk.png" width="60" />
+    <img alt="Tribar" src="https://i.postimg.cc/Qt2LNSB9/penrose-square.png" width="60" />
   </a>
 </p>
 <h1 align="center">Tribar | Crypto + Wallet + Blockchain Starter Project</h1>
