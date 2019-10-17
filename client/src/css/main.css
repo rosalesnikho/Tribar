@@ -128,9 +128,24 @@ footer {
     list-style: none;
 }
 
-.footer-sub {
-    padding-left: 6%;
+/*.footer-sub {*/
+/*    padding-left: 3%;*/
+/*}*/
+
+
+
+/* Transactions */
+
+.individual-block {
+    color: #a3f7bf;
+    padding: 3px;
+    margin-bottom: 1%;
 }
+.transaction-wrapper {
+    background-color: #435055;
+}
+
+
 
 /* Utilities */
 
@@ -155,4 +170,9 @@ footer {
     width: 60%;
     margin: 25px auto;
     color: #ccfff2;
+}
+
+.bold-text {
+    font-weight: bolder;
+    color: #FFFFFF;
 }

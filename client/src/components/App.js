@@ -10,12 +10,10 @@ class App extends Component {
 			fetch('http://localhost:3000/api/wallet-info')
 				.then(res => res.json())
 				.then(data => this.setState({ walletInfo: data}));
-
 	}
 
 	render() {
 		const { address, balance } = this.state.walletInfo;
-
 		return (
 			<div>
 				<Navigation />
