@@ -151,6 +151,10 @@ footer {
     padding-left: 3px;
 }
 
+.transaction-block {
+    border: 1px solid #a3f7bf;
+}
+
 .transaction-block:hover {
     background-color: #435055;
     border-radius: 3px;

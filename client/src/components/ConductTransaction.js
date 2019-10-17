@@ -21,6 +21,21 @@ class ConductTransaction extends Component {
         this.setState({ amount: Number(event.target.value) })
     };
 
+    conductTransaction = () => {
+
+        const { recipient, amount } = this.state;
+
+        fetch(`${document.location.origin}/api/transact`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ recipient, amount })
+        }).then(response => response.json())
+            .then(json => {
+                alert(json.message || json.type);
+                history.push('/transaction-pool');
+            });
+    };
+
     render() {
 
         return (
@@ -29,7 +44,7 @@ class ConductTransaction extends Component {
                 <div className="section-transaction">
                     <div className="container">
                         <div className="row">
-                            <form action="" method="post">
+                            <form method="post">
                                 <div className="columns three">
                                     <input type="text"
                                            placeholder="Enter Address"
@@ -46,7 +61,7 @@ class ConductTransaction extends Component {
 
                                 <div className="row">
                                     <div className="columns three">
-                                        <input className="button-primary" type="submit" value="Submit" />
+                                        <input className="button-primary" type="submit" onClick={this.conductTransaction}/>
                                     </div>
                                 </div>
                             </form>
