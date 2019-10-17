@@ -19,7 +19,7 @@ class Block extends Component {
         // Checks length is > 15 characters
         const stringData = JSON.stringify(data);
         const dataRender = stringData.length > 30 ?
-            `${stringData.substring(0, 33)}...` : stringData;
+            `${stringData.substring(0, 30)}...` : stringData;
 
         if (this.state.displayTransaction) {
             return (
@@ -48,21 +48,20 @@ class Block extends Component {
 
     render() {
         const { timestamp, hash } = this.props.block;
-        const hashDisplay = `${hash.substring(0, 33)}...`;
+        const hashDisplay = `${hash.substring(0, 30)}...`;
 
         return (
             <div className='Block'>
-                <div className="row">
-                    <div className="columns four">
-                        <div><span className="bold-text">{hashDisplay}</span></div>
+                <div className="row transaction-block">
+                    <div className="columns four align-text-middle">
+                        <p><span className="bold-text align-text-middle">{hashDisplay}</span></p>
                     </div>
-                    <div className="columns three">
-                        <div><span className="bold-text">{ new Date (timestamp).toLocaleString()}</span></div>
+                    <div className="columns three align-text-middle">
+                        <p><span className="bold-text ">{ new Date (timestamp).toLocaleString()}</span></p>
                     </div>
-                    <div className="columns four">
+                    <div className="columns four align-text-middle">
                         {this.displayTransaction}
                     </div>
-
                 </div>
             </div>
         );

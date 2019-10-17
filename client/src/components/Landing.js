@@ -96,8 +96,8 @@ class Landing extends Component {
                         <div className="row">
                             <div className="columns six">
                                 <h3>Looking for expert advice for your blockchain project?</h3>
-                                <p>Tribar is made for developers that know how to deploy multiple NodeJS instances. If you need
-                                    helping setting up an instance of tribar, blockchain advice, or deployment send me a note!</p>
+                                <p>Tribar is for experienced developers that have firm grasp of NodeJS deployment and development. In order to fully utilize Tribar, you must know how to deploy multiple NodeJS instances. However, if you need
+                                    help setting up an instance of Tribar, blockchain advice, or deployment send me a note!</p>
                                 <a href="mailto:contact@tribar.xyz?subject=re: Tribar.xyz | Inquiry" className="button">Let's Talk</a>
                             </div>
                             <div className="columns six get-started">

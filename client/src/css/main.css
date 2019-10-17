@@ -145,6 +145,16 @@ footer {
     background-color: #435055;
 }
 
+.align-text-middle {
+    vertical-align: middle;
+    padding-top: 2%;
+    padding-left: 3px;
+}
+
+.transaction-block:hover {
+    background-color: #435055;
+    border-radius: 3px;
+}
 
 
 /* Utilities */
@@ -175,4 +185,8 @@ footer {
 .bold-text {
     font-weight: bolder;
     color: #FFFFFF;
+}
+
+.align-text-middle {
+    vertical-align: middle;
 }

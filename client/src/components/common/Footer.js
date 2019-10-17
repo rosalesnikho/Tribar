@@ -14,7 +14,7 @@ const Footer = () => {
                             <h5><span className="plus-accent">Quick Links</span></h5>
                             <ul>
                                 <li><a href="https://github.com/rosalesnikho/Tribar">GitHub Repo</a></li>
-                                <li><a href="nikrosales.dev">NikRosales.dev</a></li>
+                                <li><a href="https://www.nikrosales.dev">NikRosales.dev</a></li>
                                 <li><a href="/documentation">Documentation</a></li>
                             </ul>
                         </div>
