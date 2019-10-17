@@ -6,12 +6,12 @@ const Transaction = ({ transaction}) => {
 
     return (
         <div>
-            <div>From: {`${input.address.substring(0, 15)}...`} | Balance: {input.amount}</div>
+            <div className="transaction-wrapper">
+                <div>From: {`${input.address.substring(0, 15)}...`} | Balance: {input.amount}</div>
+            </div>
             {
                 recipients.map(recipient => (
-                        <div key={recipient}>
-                            To: {`${recipient.substring(0,15)}...`} | Sent: {outputMap[recipient]}
-                        </div>
+                        <div key={recipient}>To: {`${recipient.substring(0,15)}...`} | Sent: {outputMap[recipient]}</div>
                 ))
             }
         </div>

@@ -11,7 +11,7 @@ const Footer = () => {
                             <p>All parts of Tribar are free to use and abuse under the open-source MIT license</p>
                         </div>
                         <div className="columns four footer-sub">
-                            <h5><span span className="plus-accent">Quick Links</span></h5>
+                            <h5><span className="plus-accent">Quick Links</span></h5>
                             <ul>
                                 <li><a href="https://github.com/rosalesnikho/Tribar">GitHub Repo</a></li>
                                 <li><a href="nikrosales.dev">NikRosales.dev</a></li>
@@ -19,7 +19,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className="columns four footer-sub">
-                            <h5><span span className="plus-accent">Resources</span></h5>
+                            <h5><span className="plus-accent">Resources</span></h5>
                             <ul>
                                 <li><a href="https://devcenter.heroku.com/articles/github-integration">Heroku Deployment</a></li>
                             </ul>

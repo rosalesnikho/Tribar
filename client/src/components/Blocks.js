@@ -20,10 +20,19 @@ class Blocks extends Component {
 					<div className="section-all-blocks">
 						<div className="container">
 							<h3>All Network Blocks Array</h3>
+							<div className="row blocks-label">
+								<div className="columns four"><h6>Hash</h6></div>
+								<div className="columns three"><h6>Timestamp</h6></div>
+								<div className="columns four"><h6>Details</h6></div>
+							</div>
 							{
 								this.state.blocks.map(block => {
 									return (
-										<Block key={block.hash} block={block} />
+										<div>
+											<div className="individual-block">
+												<Block key={block.hash} block={block} />
+											</div>
+										</div>
 									)
 								})
 							}

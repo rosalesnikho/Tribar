@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Transaction from './Transaction';
 
 class Block extends Component {
+
     // Set initial state of the Block component
     state = { displayTransaction: false };
 
@@ -39,7 +40,7 @@ class Block extends Component {
 
         return (
             <div>
-                <div>Data: {dataRender}</div>
+                {/*<div>Data: {dataRender}</div>*/}
                 <button className='button-primary' onClick={this.toggleTransaction}>View More</button>
             </div>
         );
@@ -47,15 +48,22 @@ class Block extends Component {
 
     render() {
         const { timestamp, hash } = this.props.block;
-
-        // Hash render & stringify
         const hashDisplay = `${hash.substring(0, 33)}...`;
 
         return (
             <div className='Block'>
-                <div>Hash: {hashDisplay}</div>
-                <div>Timestamp: { new Date (timestamp).toLocaleString()}</div>
-                {this.displayTransaction}
+                <div className="row">
+                    <div className="columns four">
+                        <div><span className="bold-text">{hashDisplay}</span></div>
+                    </div>
+                    <div className="columns three">
+                        <div><span className="bold-text">{ new Date (timestamp).toLocaleString()}</span></div>
+                    </div>
+                    <div className="columns four">
+                        {this.displayTransaction}
+                    </div>
+
+                </div>
             </div>
         );
     }
