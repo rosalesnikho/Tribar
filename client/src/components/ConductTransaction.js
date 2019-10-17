@@ -21,8 +21,8 @@ class ConductTransaction extends Component {
         this.setState({ amount: Number(event.target.value) })
     };
 
-    conductTransaction = () => {
-
+    conductTransaction = (event) => {
+        event.preventDefault()
         const { recipient, amount } = this.state;
 
         fetch(`${document.location.origin}/api/transact`, {
