@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Navigation from "./common/Navigation";
 import Footer from "./common/Footer";
+import history from "../history";
 
 class ConductTransaction extends Component {
 
@@ -32,7 +33,7 @@ class ConductTransaction extends Component {
         }).then(response => response.json())
             .then(json => {
                 alert(json.message || json.type);
-                history.push('/transaction-pool');
+                history.push('/tpm');
             });
     };
 

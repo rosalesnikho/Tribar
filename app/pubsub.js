@@ -27,20 +27,20 @@ class PubSub {
 		this.pubnub.addListener(this.listener());
 	}
 
-	broadcastChain() {
-		this.publish({
-			channel: CHANNELS.BLOCKCHAIN,
-			message: JSON.stringify(this.blockChain.chain)
-		});
-	}
-
-
-	broadcastTransaction(transaction) {
-		this.publish({
-			channel: CHANNELS.TRANSACTION,
-			message: JSON.stringify(transaction)
-		});
-	}
+	// broadcastChain() {
+	// 	this.publish({
+	// 		channel: CHANNELS.BLOCKCHAIN,
+	// 		message: JSON.stringify(this.blockChain.chain)
+	// 	});
+	// }
+	//
+	//
+	// broadcastTransaction(transaction) {
+	// 	this.publish({
+	// 		channel: CHANNELS.TRANSACTION,
+	// 		message: JSON.stringify(transaction)
+	// 	});
+	// }
 
 	subscribeToChannels() {
 		this.pubnub.subscribe({

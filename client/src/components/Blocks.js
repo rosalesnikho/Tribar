@@ -14,12 +14,13 @@ class Blocks extends Component {
     }
 
     render() {
+        console.log(this.state.blocks)
         return (
             <div>
                 <Navigation/>
                 <div className="section-all-blocks">
                     <div className="container">
-                        <h3>All Network Blocks Array</h3>
+                        <h3>Wallet Transaction Information</h3>
                         <p>Tribar instances are currently deployed across three servers. Each server can serve as a point of entry of transactions
                             and is automatically propagated across other instances. The list below represents all the blocks currently in the Tribar network. </p>
                         <div className="row blocks-label">
@@ -42,7 +43,6 @@ class Blocks extends Component {
                 </div>
                 <Footer/>
             </div>
-
         );
     }
 }
